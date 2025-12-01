@@ -1,11 +1,13 @@
 ## Practice Questions
 
-1. Print the following pattern using nested loops:
+Print the following pattern using nested loops:
+```txt
    *
    **
    ***
    ****
    *****
+```
 ```csharp
 namespace Q1
 {
