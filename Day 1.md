@@ -69,3 +69,118 @@ namespace Q2
     }
 }
 ```
+3. Write a program with a class Calculator containing methods Add, Sub, Mul, and Div. Call these using object.
+```csharp
+namespace Q3
+{
+    class Calculator
+    {
+        public int add(int a, int b)
+        {
+            return a + b;
+        }
+
+        public int sub(int a, int b)
+        {
+            if (a > b)
+            {
+                return a - b;
+            }
+            else
+            {
+                return b - a;
+            }
+        }
+
+        public int mul(int a, int b)
+        {
+            return a * b;
+        }
+
+        public int div(int a, int b)
+        {
+            if (a > b)
+            {
+                return a / b;
+            }
+            else
+            {
+                return b / a;
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator c = new Calculator();
+
+            while (true)
+            {
+                Console.WriteLine("Welcome to Calculator!! ");
+                Console.WriteLine("Select operation to perform: ");
+                Console.WriteLine("1. Add");
+                Console.WriteLine("2. Substract");
+                Console.WriteLine("3. Multiply");
+                Console.WriteLine("4. Divide");
+                Console.WriteLine("5.Exit");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine(" ");
+
+
+                int choice = int.Parse(Console.ReadLine());
+
+                if (choice == 5)
+                {
+                    Console.WriteLine("Exiting from Calculator");
+                    break;
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter two numbers: ");
+                        int a1 = int.Parse(Console.ReadLine());
+                        int b1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Result: " + c.add(a1, b1));
+                        Console.WriteLine(" ");
+                        Console.WriteLine("--------------------------");
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Enter two numbers: ");
+                        int a2 = int.Parse(Console.ReadLine());
+                        int b2 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Result: " + c.sub(a2, b2));
+                        Console.WriteLine(" ");
+                        Console.WriteLine("--------------------------");
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Enter two numbers: ");
+                        int a3 = int.Parse(Console.ReadLine());
+                        int b3 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Result: " + c.mul(a3, b3));
+                        Console.WriteLine(" ");
+                        Console.WriteLine("--------------------------");
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Enter two numbers: ");
+                        int a4 = int.Parse(Console.ReadLine());
+                        int b4 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Result: "+ c.div(a4, b4));
+                        Console.WriteLine(" ");
+                        Console.WriteLine("--------------------------");
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice! Please select a valid operation.");
+                        break;
+
+                }
+            }
+        }
+    }
+}
+```
