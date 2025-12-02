@@ -227,3 +227,119 @@ namespace Q4
 }
 ```
 5. Create a BankAccount class with Deposit, Withdraw, and CheckBalance methods. Use encapsulation so balance cannot be directly accessed.
+```csharp
+namespace Q5
+{
+
+    public class BankAccount
+    {
+        private double balance;
+
+        public BankAccount(double initialBalance)
+        {
+            if(initialBalance >= 0)
+            {
+                balance = initialBalance;
+            } else {
+                balance = 0;
+            }
+        }
+
+        public void Deposit(double amount)
+        {
+            if(amount > 0)
+            {
+                balance += amount;
+                Console.WriteLine("Deposited: " + amount);
+                Console.WriteLine("Current Balance: " + balance);
+            } 
+            else
+            {
+                Console.WriteLine("Invalid Deposit Amount");
+            }
+        }
+
+        public void Withdraw(double amount)
+        {
+            if (amount > 0 && amount <= balance)
+            {
+                balance -= amount;
+                Console.WriteLine("Withdrawn: " + amount);
+                Console.WriteLine("Current Balance: " + balance);
+            }
+            else if (amount > balance)
+            {
+                Console.WriteLine("Insufficient balance!  Amount cannot be withdrawn.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Withdrawal amount!");
+            }
+        }
+
+        public void CheckBalance()
+        {
+            Console.WriteLine("Current Balance: " + balance);
+        }
+
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Initial Balance: ");
+            int i = Convert.ToInt32(Console.ReadLine());
+
+            BankAccount b = new BankAccount(i);
+
+            while (true)
+            {
+                Console.WriteLine("-------- Welcome to Banking System --------");
+                Console.WriteLine("Select your choice..");
+                Console.WriteLine("1. Deposit");
+                Console.WriteLine("2. Withdraw");
+                Console.WriteLine("3. Check Balance");
+                Console.WriteLine("4. Exit");
+                Console.WriteLine(" ");
+
+                int choice = int.Parse(Console.ReadLine());
+
+                if(choice == 4)
+                {
+                    Console.WriteLine("Exiting from the system...");
+                    break;
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter the amount to be deposited: ");
+                        int d = int.Parse(Console.ReadLine());
+
+                        b.Deposit(d);
+
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Enter the amount to be withdrawn: ");
+                        int w = int.Parse(Console.ReadLine());
+
+                        b.Withdraw(w);
+
+                        break;
+
+                    case 3:
+                        b.CheckBalance();
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input !!! ");
+                        break;
+                }
+
+            }
+        }
+    }
+}
+```
