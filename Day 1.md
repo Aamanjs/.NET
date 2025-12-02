@@ -184,3 +184,46 @@ namespace Q3
     }
 }
 ```
+4. Create class Employee with fields id, name, salary. Create another class SalarySlip that prints employee salary slip using object of Employee in SalarySlip class.
+```csharp
+namespace Q4
+{
+    public class Employee
+    {
+        public int id;
+        public string Name;
+        public int salary;
+
+        public Employee(int id, string Name, int salary)
+        {
+            this.id = id;
+            this.Name = Name;
+            this.salary = salary;
+        }
+
+    }
+
+    public class SalarySlip
+    {
+        public void PrintSlip(Employee emp)
+        {
+            Console.WriteLine("------- Employee Salary Slip -------");
+            Console.WriteLine("Employee ID: "+ emp.id);
+            Console.WriteLine("Employee Name: "+emp.Name);
+            Console.WriteLine("Employee Salary: "+emp.salary);
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee e1 = new Employee(101, "Aaman", 56000);
+
+            SalarySlip slip = new SalarySlip();
+
+            slip.PrintSlip(e1);
+        }
+    }
+}
+```
+5. Create a BankAccount class with Deposit, Withdraw, and CheckBalance methods. Use encapsulation so balance cannot be directly accessed.
