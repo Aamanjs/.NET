@@ -56,7 +56,7 @@ namespace Q2_Assign
 }
 ```
 
-4.	Write a C# program to get nearest thousands of given integer number. Here, let name the input value as "number".
+3.	Write a C# program to get nearest thousands of given integer number. Here, let name the input value as "number".
 ```csharp
 namespace Q3_Assign
 {
