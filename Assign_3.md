@@ -136,3 +136,53 @@ namespace Assign_3
     }
 }
 ```
+Q2. Create a C# program that contains a method that finds large numbers of a group of collections respectively.
+```csharp
+namespace Q2_Ass_3
+{
+    internal class Program
+    {
+        public class LargestFinder
+        {
+            public static void findLargestNumber(List<List<int>> collections)
+            {
+                int groupIndex = 1;
+
+                foreach (var collection in collections)
+                {
+                    if (collection.Count == 0)
+                    {
+                        Console.WriteLine($"Group: {groupIndex}: Empty Collection");
+                    }
+                    else
+                    {
+                        int Largest = int.MinValue;
+                        foreach (var num in collection)
+                        {
+                            if (num > Largest)
+                            {
+                                Largest = num;
+                            }
+                        }
+                        Console.WriteLine($"Group {groupIndex} : Largest number = {Largest}");
+                    }
+                    groupIndex++;
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            List<int> group1 = new List<int> { 10, 25, 3, 99, 45 };
+            List<int> group2 = new List<int> { 5, 7, 2, 8 };
+            List<int> group3 = new List<int> { 100, 200, 150 };
+
+            List<List<int>> allGroups = new List<List<int>> { group1, group2, group3 };
+
+            LargestFinder.findLargestNumber(allGroups);
+
+            Console.WriteLine("\n Program finished press any key to exit.");
+            Console.ReadKey();
+        }
+    }
+}
+```
