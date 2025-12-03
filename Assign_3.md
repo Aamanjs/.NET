@@ -186,3 +186,7 @@ namespace Q2_Ass_3
     }
 }
 ```
+Q3.	Create a C# console application that demonstrates the usage of interfaces and collections.
+```csharp
+
+```
