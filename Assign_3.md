@@ -188,5 +188,118 @@ namespace Q2_Ass_3
 ```
 Q3.	Create a C# console application that demonstrates the usage of interfaces and collections.
 ```csharp
+namespace Q3_Assign_3
+{
+    public interface IVehicle
+    {
+        string Model { get; }
+        void Start();
+        void Stop();
+    }
+
+    public class Car : IVehicle
+    {
+        public string Model { get; private set;}
+        public Car(string model)
+        {
+            Model = model;
+        }
+
+        public void Start() => Console.WriteLine($"{Model} is started.");
+
+        public void Stop() => Console.WriteLine($"{Model} is stopped.");
+
+    }
+
+    public class Bike : IVehicle
+    {
+        public string Model { get; private set;}
+        public Bike(string model)
+        {
+            Model = model;
+        }
+        public void Start() => Console.WriteLine($"{Model} is started.");
+        public void Stop() => Console.WriteLine($"{Model} is stopped.");
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<IVehicle> vehicles = new List<IVehicle>
+            {
+                new Car("Toyota Corolla"),
+                new Bike("Yamaha YZF-R3"),
+                new Car("Honda Civic"),
+                new Bike("Kawasaki Ninja 400")
+            };
+
+            while (true)
+            {
+                Console.WriteLine("\n--- Vehicle Control System ---");
+                Console.WriteLine("1. Show Vehicles");
+                Console.WriteLine("2. Start a Vehicle");
+                Console.WriteLine("3. Stop a Vehicle");
+                Console.WriteLine("4. Exit");
+                Console.Write("Enter your choice: ");
+
+                int choice = int.Parse(Console.ReadLine());
+
+                if(choice == 4) {
+                    Console.WriteLine("Exiting...");
+                    break;
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("\nAvailable Vehicles:");
+                        for (int i = 0; i < vehicles.Count; i++)
+                        {
+                            Console.WriteLine($"{i+1}. {vehicles[i].Model}");
+                        } 
+                        break;
+                    case 2:
+                        Console.WriteLine("\nEnter Vehicle Number to start vehicle");
+                        int n = int.Parse(Console.ReadLine());
+
+                        for (int i=0; i < vehicles.Count; i++)
+                        {
+                            if (i == n-1)
+                            {
+                                vehicles[i].Start();
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid vehicle number");
+                            }
+                        }
+                        break;
+                    case 3:
+                        Console.WriteLine("\nEnter Vehicle Number to start vehicle");
+                        int n1 = int.Parse(Console.ReadLine());
+
+                        for (int i = 0; i < vehicles.Count; i++)
+                        {
+                            if (i == n1 - 1)
+                            {
+                                vehicles[n1 - 1].Stop();
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid vehicle number");
+                            }
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice !!!");
+                        break;
+                }
+            }
+        }
+    }
+}
 
 ```
