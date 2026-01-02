@@ -1,3 +1,7 @@
+## File Structure
+<img width="227" height="649" alt="image" src="https://github.com/user-attachments/assets/f13b60d9-9955-49a2-ab5d-84d57b2d7344" />
+
+
 ## Program.cs
 ```csharp
 namespace ModelBinder
